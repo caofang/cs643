@@ -1,0 +1,42 @@
+
+
+
+
+### download hadoop
+wget http://mirrors.gigenet.com/apache/hadoop/common/hadoop-2.8.1/hadoop-2.8.1.tar.gz
+
+tar -xvf hadoop-2.8.1.tar.gz
+
+
+
+### etc/hadoop/hadoop-env.sh
+
+export JAVA_HOME=/usr/lib/jvm/jre
+
+
+### etc/hadoop/masters
+namenode_hostname
+
+### etc/hadoop/slaves	shouble be the same as .ssh/config
+	datanode1
+	datanode2
+	datanode3
+
+
+
+
+
+
+### /etc/hosts
+127.0.0.1 localhost
+18.216.98.71	namenode_hostname	
+18.221.212.39	datanode1_hostname
+18.221.151.178	datanode2_hostname
+18.221.168.202	datanode3_hostname
+
+
+### making dhfs directory
+sudo mkdir -p $HADOOP_HOME/hadoop_data/hdfs/datanode
+
+
+sudo chown -R ec2-user $HADOOP_HOME

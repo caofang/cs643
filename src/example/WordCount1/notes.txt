@@ -1,0 +1,11 @@
+### compile
+javac -classpath ${HADOOP_CLASSPATH} -d ./ WordCount.java
+jar -cvf WordCount.jar -C ./ .
+
+
+
+#run
+hadoop jar wordcount.jar org.myorg.WordCount /user/ec2-user/wordcount/input /user/ec2-user/wordcount/output
+
+
+hadoop jar wordcount.jar org.myorg.WordCount /user/ec2-user/data/states /user/ec2-user/wordcount/output

@@ -47,3 +47,16 @@ sudo mkdir -p $HADOOP_HOME/hadoop_data/hdfs/datanode
 
 
 sudo chown -R ec2-user $HADOOP_HOME
+
+
+### Start Hadoop Cluster
+
+hdfs namenode -format
+$HADOOP_HOME/sbin/start-dfs.sh
+
+
+
+namenode$ $HADOOP_HOME/sbin/start-yarn.sh
+namenode$ $HADOOP_HOME/sbin/mr-jobhistory-daemon.sh start historyserver
+
+

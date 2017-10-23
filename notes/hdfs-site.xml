@@ -24,14 +24,17 @@
         <property>
 
           <!-- for datanodes -->
+          <!-- 
           <name>dfs.datanode.data.dir</name>
           <value>file:///usr/local/hadoop/hadoop_data/hdfs/datanode</value>  
+          -->
+          
 
           <!-- for namenode -->
-          <!-- 
+          
           <name>dfs.namenode.name.dir</name>
           <value>file:///usr/local/hadoop/hadoop_data/hdfs/namenode</value>
-          -->
-              
+          
+
 </property>
 </configuration>

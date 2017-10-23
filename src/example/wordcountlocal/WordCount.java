@@ -13,7 +13,7 @@ public class WordCount  {
 
         
     
-        String in = "hello hello world\n\n hello world hello ";
+        String in = "hello -hello- world\n\n hello world hello ";
         int i = 0;
         Pattern p = Pattern.compile("hello");
         Matcher m = p.matcher( in );

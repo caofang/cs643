@@ -23,7 +23,7 @@ public class WordCount extends Configured implements Tool {
     private static final Logger LOG = Logger.getLogger(WordCount.class);
 
     public static void main(String[] args) throws Exception {
-        System.out.println("===== trace 8 =====");
+        System.out.println("===== trace 0 =====");
 
         int res = ToolRunner.run(new WordCount(), args);
         System.exit(res);
@@ -65,9 +65,7 @@ public class WordCount extends Configured implements Tool {
 
     public static class Reduce extends Reducer < Text, IntWritable, Text, IntWritable > {
         @Override
-        public void reduce(Text word, Iterable < IntWritable > counts, Context context)
-        throws IOException,
-        InterruptedException {
+        public void reduce(Text word, Iterable < IntWritable > counts, Context context) throws IOException, InterruptedException {
             int sum = 0;
             for (IntWritable count: counts) {
                 sum += count.get();

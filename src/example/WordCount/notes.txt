@@ -12,3 +12,11 @@ hadoop fs -cat wordcount/output/*
 
 ## rm outputs
 hadoop fs -rm -r wordcount/output*
+
+
+
+
+
+
+hadoop jar WordCount.jar org.myorg.WordCount /user/ec2-user/wordcount/input/Alabama /user/ec2-user/wordcount/output/Alabama
+hadoop jar WordCount.jar org.myorg.WordCount /user/ec2-user/wordcount/input/Alaska /user/ec2-user/wordcount/output/Alaska

@@ -13,14 +13,22 @@ public class WordCount  {
 
         
     
-        String in = "hello-hello- world\n\n hello world hello ";
+        String line = "hello-hello- world\n\n hello_world hello ";
         int i = 0;
-        Pattern p = Pattern.compile("hello");
-        Matcher m = p.matcher( in );
-        while (m.find()) {
-            i++;
+        Pattern p = Pattern.compile("\\W|_");
+        // Matcher m = p.matcher( line );
+        // while (m.find()) {
+        //     i++;
+        // }
+        // System.out.println(i); // Prints 2
+
+
+        for (String word: p.split(line)) {
+            if (word.isEmpty()) {
+                continue;
+            }
+            System.out.println(word);
         }
-        System.out.println(i); // Prints 2
                 
 
 

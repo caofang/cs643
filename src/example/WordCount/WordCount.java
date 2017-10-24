@@ -23,7 +23,7 @@ public class WordCount extends Configured implements Tool {
     private static final Logger LOG = Logger.getLogger(WordCount.class);
 
     public static void main(String[] args) throws Exception {
-        System.out.println("===== trace 1 =====");
+        System.out.println("===== trace 8 =====");
 
         int res = ToolRunner.run(new WordCount(), args);
         System.exit(res);
@@ -46,11 +46,9 @@ public class WordCount extends Configured implements Tool {
         private final static IntWritable one = new IntWritable(1);
         private Text word = new Text();
         private long numRecords = 0;
-        private static final Pattern WORD_BOUNDARY = Pattern.compile("\\s*\\b\\s*");
+        private static final Pattern WORD_BOUNDARY = Pattern.compile("\\W|_");
 
-        public void map(LongWritable offset, Text lineText, Context context)
-        throws IOException,
-        InterruptedException {
+        public void map(LongWritable offset, Text lineText, Context context) throws IOException, InterruptedException {
             String line = lineText.toString();
             line = line.toLowerCase();
 
@@ -75,7 +73,7 @@ public class WordCount extends Configured implements Tool {
                 sum += count.get();
             }
 
-            Pattern p = Pattern.compile("education");
+            Pattern p = Pattern.compile("\\beducation\\b|\\bpolitics\\b|\\bsports\\b|\\bagriculture\\b");
             Matcher m = p.matcher( word.toString() );
             if (m.find()) {        
                 context.write(word, new IntWritable(sum));

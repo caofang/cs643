@@ -1,0 +1,71 @@
+### PATH
+### append this in ~/.bashrc
+
+export JAVA_HOME=/usr
+export PATH=$PATH:$JAVA_HOME/bin
+export HADOOP_HOME=/usr/local/hadoop
+export PATH=$PATH:$HADOOP_HOME/bin
+export HADOOP_CONF_DIR=/usr/local/hadoop/etc/hadoop
+export HADOOP_CLASSPATH=$(/usr/local/hadoop/bin/hadoop classpath)
+
+
+
+
+### download hadoop
+wget http://mirrors.gigenet.com/apache/hadoop/common/hadoop-2.8.1/hadoop-2.8.1.tar.gz
+
+tar -xvf hadoop-2.8.1.tar.gz
+
+
+
+### etc/hadoop/hadoop-env.sh
+
+export JAVA_HOME=/usr/lib/jvm/jre
+
+
+### etc/hadoop/masters
+namenode_hostname
+
+### etc/hadoop/slaves	shouble be the same as .ssh/config
+	datanode1
+	datanode2
+	datanode3
+
+
+
+
+
+
+### /etc/hosts
+127.0.0.1 localhost
+18.216.98.71	namenode_hostname
+18.221.212.39	datanode1_hostname
+18.221.151.178	datanode2_hostname
+18.221.168.202	datanode3_hostname
+
+
+ec2-18-216-98-71.us-east-2.compute.amazonaws.com
+ec2-18-221-212-39.us-east-2.compute.amazonaws.com
+ec2-18-221-151-178.us-east-2.compute.amazonaws.com
+ec2-18-221-168-202.us-east-2.compute.amazonaws.com
+
+
+
+### making dhfs directory
+sudo mkdir -p $HADOOP_HOME/hadoop_data/hdfs/datanode
+
+
+sudo chown -R ec2-user $HADOOP_HOME
+
+
+### Start Hadoop Cluster
+
+hdfs namenode -format
+$HADOOP_HOME/sbin/start-dfs.sh
+
+
+
+namenode$ $HADOOP_HOME/sbin/start-yarn.sh
+namenode$ $HADOOP_HOME/sbin/mr-jobhistory-daemon.sh start historyserver
+
+

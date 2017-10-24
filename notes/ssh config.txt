@@ -1,3 +1,0 @@
-
-### download hadoop
-wget http://mirrors.gigenet.com/apache/hadoop/common/hadoop-2.8.1/hadoop-2.8.1.tar.gz

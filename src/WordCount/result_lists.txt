@@ -1,0 +1,249 @@
+===== Alabama =====
+agriculture	13
+education	67
+politics	17
+sports	15
+===== Alaska =====
+agriculture	13
+education	17
+politics	25
+sports	6
+===== Arizona =====
+agriculture	3
+education	50
+politics	14
+sports	25
+===== Arkansas =====
+agriculture	12
+education	46
+politics	29
+sports	13
+===== California =====
+agriculture	17
+education	37
+politics	25
+sports	24
+===== Colorado =====
+agriculture	14
+education	15
+politics	24
+sports	32
+===== Connecticut =====
+agriculture	4
+education	23
+politics	19
+sports	43
+===== Delaware =====
+agriculture	9
+education	23
+politics	12
+sports	12
+===== Florida =====
+agriculture	16
+education	29
+politics	20
+sports	19
+===== Georgia =====
+agriculture	10
+education	17
+politics	19
+sports	20
+===== Hawaii =====
+agriculture	7
+education	42
+politics	20
+sports	8
+===== Idaho =====
+agriculture	5
+education	14
+politics	15
+sports	9
+===== Illinois =====
+agriculture	11
+education	30
+politics	23
+sports	34
+===== Indiana =====
+agriculture	3
+education	13
+politics	11
+sports	19
+===== Iowa =====
+agriculture	25
+education	33
+politics	16
+sports	16
+===== Kansas =====
+agriculture	8
+education	31
+politics	19
+sports	26
+===== Kentucky =====
+agriculture	6
+education	46
+politics	24
+sports	15
+===== Louisiana =====
+agriculture	8
+education	23
+politics	12
+sports	14
+===== Maine =====
+agriculture	7
+education	16
+politics	21
+sports	11
+===== Maryland =====
+agriculture	5
+education	43
+politics	14
+sports	19
+===== Massachusetts =====
+agriculture	17
+education	36
+politics	37
+sports	25
+===== Michigan =====
+agriculture	16
+education	27
+politics	20
+sports	15
+===== Minnesota =====
+agriculture	12
+education	19
+politics	19
+sports	37
+===== Mississippi =====
+agriculture	10
+education	31
+politics	11
+sports	8
+===== Missouri =====
+agriculture	6
+education	34
+politics	10
+sports	28
+===== Montana =====
+agriculture	11
+education	35
+politics	17
+sports	40
+===== Nebraska =====
+agriculture	14
+education	15
+politics	20
+sports	43
+===== Nevada =====
+agriculture	6
+education	23
+politics	28
+sports	15
+===== New_Hampshire =====
+agriculture	3
+education	18
+politics	23
+sports	15
+===== New_Jersey =====
+agriculture	6
+education	36
+politics	20
+sports	58
+===== New_Mexico =====
+agriculture	4
+education	23
+politics	10
+sports	10
+===== New_York =====
+agriculture	5
+education	25
+politics	22
+sports	14
+===== North_Carolina =====
+agriculture	14
+education	27
+politics	24
+sports	20
+===== North_Dakota =====
+agriculture	22
+education	18
+politics	22
+sports	3
+===== Ohio =====
+agriculture	6
+education	25
+politics	19
+sports	12
+===== Oklahoma =====
+agriculture	38
+education	56
+politics	21
+sports	38
+===== Oregon =====
+agriculture	12
+education	23
+politics	19
+sports	17
+===== Pennsylvania =====
+agriculture	16
+education	36
+politics	16
+sports	16
+===== Rhode_Island =====
+education	10
+politics	14
+sports	13
+===== South_Carolina =====
+agriculture	3
+education	40
+politics	25
+sports	16
+===== South_Dakota =====
+agriculture	13
+education	29
+politics	20
+sports	27
+===== Tennessee =====
+agriculture	17
+education	19
+politics	18
+sports	8
+===== Texas =====
+agriculture	11
+education	56
+politics	57
+sports	24
+===== Utah =====
+agriculture	3
+education	9
+politics	19
+sports	17
+===== Vermont =====
+agriculture	20
+education	30
+politics	27
+sports	26
+===== Virginia =====
+agriculture	27
+education	77
+politics	31
+sports	27
+===== Washington =====
+agriculture	11
+education	36
+politics	13
+sports	14
+===== West_Virginia =====
+agriculture	4
+education	23
+politics	16
+sports	10
+===== Wisconsin =====
+agriculture	18
+education	16
+politics	27
+sports	19
+===== Wyoming =====
+agriculture	5
+education	23
+politics	16
+sports	10

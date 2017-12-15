@@ -1,0 +1,20 @@
+Host namenode
+  HostName 172.31.24.49
+  User ec2-user
+  IdentityFile ~/.ssh/key1.pem
+
+Host datanode1
+  HostName 172.31.30.10
+  User ec2-user
+  IdentityFile ~/.ssh/key1.pem
+
+Host datanode2
+  HostName 172.31.21.233
+  User ec2-user
+  IdentityFile ~/.ssh/key1.pem
+
+Host datanode3
+  HostName 172.31.22.244
+  User ec2-user
+  IdentityFile ~/.ssh/key1.pem
+

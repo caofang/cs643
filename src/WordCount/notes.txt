@@ -6,6 +6,67 @@ export PATH=$PATH:$HADOOP_HOME/bin
 export HADOOP_CONF_DIR=/usr/local/hadoop/etc/hadoop
 export HADOOP_CLASSPATH=$(/usr/local/hadoop/bin/hadoop classpath)
 
+
+### start hdfs
+$HADOOP_HOME/sbin/start-dfs.sh
+
+
+$HADOOP_HOME/sbin/stop-all.sh
+
+
+### run map reduce streaming
+hadoop jar /usr/local/hadoop/share/hadoop/tools/lib/hadoop-streaming-2.8.1.jar \
+  -input /user/ec2-user/data/nfldata \
+  -output /user/ec2-user/data/ \
+  -mapper cat \
+  -reducer "wc -l"
+
+
+
+
+
+### troubleshooting
+
+ssh datanode3 "
+tail -vn +1 $HADOOP_CONF_DIR/yarn-site.xml
+tail -vn +1 $HADOOP_CONF_DIR/mapred-site.xml
+tail -vn +1 $HADOOP_CONF_DIR/core-site.xml
+tail -vn +1 $HADOOP_CONF_DIR/hdfs-site.xml" | grep "<value>"
+
+
+ssh datanode3 "
+sed -i s/ec2-18-216-98-71.us-east-2.compute.amazonaws.com/172.31.24.49/ $HADOOP_CONF_DIR/yarn-site.xml
+sed -i s/ec2-18-216-98-71.us-east-2.compute.amazonaws.com/172.31.24.49/ $HADOOP_CONF_DIR/mapred-site.xml
+sed -i s/ec2-18-216-98-71.us-east-2.compute.amazonaws.com/172.31.24.49/ $HADOOP_CONF_DIR/core-site.xml
+sed -i s/ec2-18-216-98-71.us-east-2.compute.amazonaws.com/172.31.24.49/ $HADOOP_CONF_DIR/hdfs-site.xml
+"
+
+ssh datanode1 "
+echo \"
+Host namenode
+  HostName 172.31.24.49
+  User ec2-user
+  IdentityFile ~/.ssh/key1.pem
+
+Host datanode1
+  HostName 172.31.30.10
+  User ec2-user
+  IdentityFile ~/.ssh/key1.pem
+
+Host datanode2
+  HostName 172.31.21.233
+  User ec2-user
+  IdentityFile ~/.ssh/key1.pem
+
+Host datanode3
+  HostName 172.31.22.244
+  User ec2-user
+  IdentityFile ~/.ssh/key1.pem
+
+###
+
+
+
 ### compile, run this in the same directory with WordCount.java
 javac -classpath $HADOOP_CLASSPATH -d ./ WordCount.java
 jar -cvf WordCount.jar -C ./ .

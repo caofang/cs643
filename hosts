@@ -1,0 +1,7 @@
+### /etc/hosts
+127.0.0.1 localhost
+
+172.31.24.49	namenode_hostname
+172.31.30.10	datanode1_hostname
+172.31.21.233	datanode2_hostname
+172.31.22.244	datanode3_hostname

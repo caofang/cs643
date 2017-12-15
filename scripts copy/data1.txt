@@ -1,0 +1,1 @@
+In general it is not possible to obtain the filename in a platform-agnostic way. The other answers cover sensible alternatives like passing the name on the command-line

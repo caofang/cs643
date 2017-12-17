@@ -7,20 +7,31 @@ export HADOOP_CONF_DIR=/usr/local/hadoop/etc/hadoop
 export HADOOP_CLASSPATH=$(/usr/local/hadoop/bin/hadoop classpath)
 
 
-### start hdfs
+### Start Hadoop Cluster
+
+hdfs namenode -format
+
 $HADOOP_HOME/sbin/start-dfs.sh
+$HADOOP_HOME/sbin/start-yarn.sh
+$HADOOP_HOME/sbin/mr-jobhistory-daemon.sh start historyserver
+
 
 
 $HADOOP_HOME/sbin/stop-all.sh
 
 
 ### run map reduce streaming
+hadoop fs -rm -r nfl/output*
 hadoop jar /usr/local/hadoop/share/hadoop/tools/lib/hadoop-streaming-2.8.1.jar \
-  -input /user/ec2-user/data/nfldata \
-  -output /user/ec2-user/data/ \
-  -mapper cat \
-  -reducer "wc -l"
+    -mapper /home/ec2-user/mapper.py \
+    -reducer /home/ec2-user/reducer.py \
+    -input /user/ec2-user/nfl/input/ \
+    -output /user/ec2-user/nfl/output
 
+
+
+### Delete outputs
+hadoop fs -rm -r nfl/output*
 
 
 

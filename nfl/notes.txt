@@ -1,0 +1,86 @@
+### environment
+export JAVA_HOME=/usr
+export PATH=$PATH:$JAVA_HOME/bin
+export HADOOP_HOME=/usr/local/hadoop
+export PATH=$PATH:$HADOOP_HOME/bin
+export HADOOP_CONF_DIR=/usr/local/hadoop/etc/hadoop
+export HADOOP_CLASSPATH=$(/usr/local/hadoop/bin/hadoop classpath)
+
+
+### Start Hadoop Cluster
+
+hdfs namenode -format
+
+$HADOOP_HOME/sbin/start-dfs.sh
+$HADOOP_HOME/sbin/start-yarn.sh
+$HADOOP_HOME/sbin/mr-jobhistory-daemon.sh start historyserver
+
+
+
+$HADOOP_HOME/sbin/stop-all.sh
+
+
+### run map reduce streaming
+hadoop fs -rm -r nfl/output*
+hadoop jar /usr/local/hadoop/share/hadoop/tools/lib/hadoop-streaming-2.8.1.jar \
+    -file /home/ec2-user/mapper.py \
+    -file /home/ec2-user/reducer.py \
+    -mapper /home/ec2-user/mapper.py \
+    -reducer /home/ec2-user/reducer.py \
+    -input /user/ec2-user/nfl/input/ \
+    -output /user/ec2-user/nfl/output
+
+
+
+### Delete outputs
+hadoop fs -rm -r nfl/output*
+
+
+
+
+### troubleshooting
+
+
+ssh datanode1 "
+echo \"
+Host namenode
+  HostName 172.31.24.49
+  User ec2-user
+  IdentityFile ~/.ssh/key1.pem
+
+Host datanode1
+  HostName 172.31.30.10
+  User ec2-user
+  IdentityFile ~/.ssh/key1.pem
+
+Host datanode2
+  HostName 172.31.21.233
+  User ec2-user
+  IdentityFile ~/.ssh/key1.pem
+
+Host datanode3
+  HostName 172.31.22.244
+  User ec2-user
+  IdentityFile ~/.ssh/key1.pem
+
+###
+
+
+
+### compile, run this in the same directory with WordCount.java
+javac -classpath $HADOOP_CLASSPATH -d ./ WordCount.java
+jar -cvf WordCount.jar -C ./ .
+
+
+## run single commands
+hadoop jar WordCount.jar org.myorg.WordCount /user/ec2-user/wordcount/input /user/ec2-user/wordcount/output
+
+## run all states
+sh runwc.sh
+
+## display results
+sh showdata.sh | tee result_lists.txt
+
+
+## rm outputs
+hadoop fs -rm -r wordcount/output*
